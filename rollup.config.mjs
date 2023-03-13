@@ -1,5 +1,6 @@
 import terser from '@rollup/plugin-terser'
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 export default [
   {
@@ -9,7 +10,7 @@ export default [
       format: 'esm'
     },
     treeshake: true,
-    plugins: [nodeResolve({
+    plugins: [commonjs(), nodeResolve({
       browser: true,
     }), terser()]
   },
@@ -20,7 +21,7 @@ export default [
       format: 'esm'
     },
     treeshake: true,
-    plugins: [nodeResolve({
+    plugins: [commonjs(), nodeResolve({
       browser: true,
     }), terser()]
   }
